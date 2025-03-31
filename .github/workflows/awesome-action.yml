@@ -14,7 +14,9 @@ jobs:
 
       - name: "Print PR title"
         if: github.event_name == 'pull_request'
-        run: echo "${{ github.event.pull_request.body }}"
+        env: 
+          TITLE: "${{ github.event.pull_request.body }}"
+        run: echo "$TITLE"
 
       - name: "Do something awesome"
         uses: super-safe/nothing-to-see-here-action@v1.2.3
